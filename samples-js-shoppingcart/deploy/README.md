@@ -13,9 +13,6 @@ If using an event sourced entity, install Cassandra. This can be done from the G
 
 The defaults should be good enough, in our examples we called the app instance name cassandra.
 
-Note: there is an option to use an in memory store if you just want to test it out, of course, as soon as your pods shut down (or if they are rebalanced), your store will be lost.
-
-
 ## Deploying the sample shopping cart application
 
 Create Kube namespace for application:
@@ -23,7 +20,7 @@ Create Kube namespace for application:
 kubectl create namespace shoppingcart
 ```
 
-###Installing StatefulStore
+### Installing StatefulStore
 For cassandra store, execute:
 ```bash
 kubectl apply -f ./shopping-store-cassandra.yaml -n shoppingcart
@@ -34,18 +31,20 @@ kubectl apply -f ./shopping-store-inmemory.yaml -n shoppingcart
 ```
 Note: If executing "kubectl config set-context --current --namespace=shoppingcart" firstly, the "-n shoppingcart" in above command can be removed. 
 
-###Installing StatefulService
+### Installing StatefulService
 Execute the following command for cassandra or inmemory store: 
 ```bash
 kubectl apply -f ./shopping-cart-cassandra.yaml -n shoppingcart
 
 kubectl apply -f ./shopping-cart-inmemory.yaml -n shoppingcart
 ```
-###installing LoadBalance service
+### Installing LoadBalance service
 ```bash
 kubectl apply -f ./shopping-cart-service.yaml -n shoppingcart
 ```
 The can expose public IP for test. For example, 35.224.197.137:1981
 
-#Test
+Note: there is an option to use an in memory store if you just want to test it out, of course, as soon as your pods shut down (o$
+
+# Test
 BloomPRC is a good gprc client to test. 
