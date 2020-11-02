@@ -29,7 +29,6 @@ For InMemory store, execute:
 ```bash
 kubectl apply -f ./shopping-store-inmemory.yaml -n shoppingcart
 ```
-Note: If executing "kubectl config set-context --current --namespace=shoppingcart" firstly, the "-n shoppingcart" in above command can be removed. 
 
 ### Installing StatefulService
 Execute the following command for cassandra or inmemory store: 
@@ -42,9 +41,9 @@ kubectl apply -f ./shopping-cart-inmemory.yaml -n shoppingcart
 ```bash
 kubectl apply -f ./shopping-cart-service.yaml -n shoppingcart
 ```
-The can expose public IP for test. For example, 35.224.197.137:1981
+The can expose public IP. The port is 1981.  For example, 35.224.197.137:1981
 
-Note: there is an option to use an in memory store if you just want to test it out, of course, as soon as your pods shut down (o$
+Note: If executing "kubectl config set-context --current --namespace=shoppingcart" firstly, the "-n shoppingcart" in above comma$
 
 # Test
 BloomPRC is a good gprc client to test. 
